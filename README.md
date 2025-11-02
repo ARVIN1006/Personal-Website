@@ -51,9 +51,8 @@ Tidak diperlukan *build step* atau instalasi *package*.
 
 1.  *Clone* repositori ini:
     ```sh
-    git clone [https://github.com/ARVIN1006/my-portfolio.git](https://github.com/ARVIN1006/my-portfolio.git)
+    git clone [[https://github.com/ARVIN1006/my-portfolio.git](https://github.com/ARVIN1006/my-portfolio.git)](https://github.com/ARVIN1006/Personal-Website.git)
     ```
-    *(Ganti dengan URL repositori GitHub Anda)*
 
 2.  Masuk ke direktori proyek:
     ```sh
