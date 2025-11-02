@@ -9,9 +9,13 @@ Ini adalah repositori untuk website portofolio personal saya. Proyek ini dibangu
 Tujuan utama dari portofolio ini adalah untuk mendemonstrasikan keahlian "Hybrid" saya, yang menggabungkan fondasi teknis **IT Support** dengan keterampilan **Modern Web Development**.
 
 **Lihat Langsung:** **[arvindev.netlify.app](https://arvindev.netlify.app)**
-
+*(Ganti dengan link Netlify Anda setelah di-deploy)*
 
 ---
+
+### Screenshot Proyek
+
+![Cuplikan layar portofolio Arvin dalam mode gelap](images/profile.jpg)
 
 
 ## ✨ Fitur Unggulan
@@ -43,7 +47,7 @@ Proyek ini sengaja dibangun secara *vanilla* untuk mendemonstrasikan pemahaman f
     * Manajemen *Event Listener* yang kompleks (untuk Kursor, Terminal, Kode Konami, TABS, dll.).
 * **AOS (Animate on Scroll):** *Library* ringan untuk animasi *fade-in* saat *scroll*.
 * **Bootstrap Icons:** Untuk *glyph* yang bersih dan konsisten.
-* **Deployment:** Di-hosting di **Netlify** dengan *continuous deployment* dari GitHub.
+* **Deployment:** Di-hosting di **Netlify** (atau **Vercel**) dengan *continuous deployment* dari GitHub.
 
 ## 🚀 Menjalankan Secara Lokal
 
@@ -51,12 +55,12 @@ Tidak diperlukan *build step* atau instalasi *package*.
 
 1.  *Clone* repositori ini:
     ```sh
-    git clone [[https://github.com/ARVIN1006/my-portfolio.git](https://github.com/ARVIN1006/my-portfolio.git)](https://github.com/ARVIN1006/Personal-Website.git)
+    git clone [https://github.com/ARVIN1006/Personal-Website.git](https://github.com/ARVIN1006/Personal-Website.git)
     ```
 
 2.  Masuk ke direktori proyek:
     ```sh
-    cd my-portfolio
+    cd Personal-Website
     ```
 
 3.  Cukup buka file `index.html` di *browser* favorit Anda.
