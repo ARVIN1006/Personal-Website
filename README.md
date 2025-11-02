@@ -13,9 +13,6 @@ Tujuan utama dari portofolio ini adalah untuk mendemonstrasikan keahlian "Hybrid
 
 ---
 
-### Screenshot Proyek
-
-![Cuplikan layar portofolio Arvin dalam mode gelap](images/profile.PNG)
 
 ## ✨ Fitur Unggulan
 
