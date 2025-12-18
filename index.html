@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FF9933" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Portfolio Arvin Ramdhan Fakhrudin - Hybrid Developer & IT Support. Mahasiswa Teknik Informatika dengan keahlian dalam Web Development, IT Support, dan UI/UX Design."
+    />
+    <meta
+      name="keywords"
+      content="Arvin Ramdhan Fakhrudin, Web Developer, IT Support, Front-End Developer, Portfolio, Teknik Informatika, Ma'soem University"
+    />
+    <meta name="author" content="Arvin Ramdhan Fakhrudin" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arvin.dev/" />
+    <meta
+      property="og:title"
+      content="Arvin Ramdhan Fakhrudin | Hybrid Developer & IT Support"
+    />
+    <meta
+      property="og:description"
+      content="Portfolio Arvin Ramdhan Fakhrudin - Hybrid Developer & IT Support dengan keahlian Web Development dan IT Operations."
+    />
+    <meta property="og:image" content="https://arvin.dev/profile.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://arvin.dev/" />
+    <meta
+      property="twitter:title"
+      content="Arvin Ramdhan Fakhrudin | Hybrid Developer & IT Support"
+    />
+    <meta
+      property="twitter:description"
+      content="Portfolio Arvin Ramdhan Fakhrudin - Hybrid Developer & IT Support dengan keahlian Web Development dan IT Operations."
+    />
+    <meta property="twitter:image" content="https://arvin.dev/profile.jpg" />
+
+    <title>Arvin Ramdhan Fakhrudin | Hybrid Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="profile.jpg" as="image" />
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@dotlottie/player@latest/dist/dotlottie-player.js"></script>
+  </head>
+
+  <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#about-section" class="skip-to-main">Skip to main content</a>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="cursor-dot"></div>
+
+    <div id="stickyContact">
+      <a
+        href="mailto:arvinramdhan1006@gmail.com"
+        class="contact-icon"
+        aria-label="Kirim Email Cepat"
+      >
+        <i class="bi bi-envelope-fill"></i>
+      </a>
+      <a
+        href="https://wa.me/6282127666523"
+        target="_blank"
+        class="contact-icon"
+        aria-label="Hubungi via WhatsApp"
+      >
+        <i class="bi bi-whatsapp"></i>
+      </a>
+    </div>
+
+    <button
+      id="themeToggle"
+      aria-label="Toggle Light/Dark Mode"
+      class="theme-toggle"
+    ></button>
+
+    <div id="preloader">
+      <div class="loader-text">ARVIN.DEV</div>
+      <div class="loader-ring"></div>
+    </div>
+
+    <button id="scrollToggle" aria-label="Gulir ke Konten Utama">
+      <i class="bi bi-chevron-bar-down"></i>
+    </button>
+
+    <div class="stuck-grid" id="welcome-section">
+      <div class="grid-frame"></div>
+      <div class="grid-center">
+        <p class="welcome-subtitle" data-aos="fade-up" data-aos-duration="800">
+          Arvin Ramdhan Fakhrudin
+        </p>
+        <b data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          Hybrid Developer & IT Support
+        </b>
+      </div>
+    </div>
+
+    <main class="content-wrapper">
+      <section class="content-section" id="about-section">
+        <h2 data-aos="fade-up" data-aos-duration="600">About Me</h2>
+
+        <div class="scrolly-layout">
+          <div
+            class="scrolly-text"
+            data-aos="fade-left"
+            data-aos-duration="800"
+          >
+            <p data-image-trigger="profile">
+              Saya Arvin Ramdhan Fakhrudin, seorang
+              <strong>mahasiswa Teknik Informatika</strong> di
+              <strong>Ma'soem University</strong> dengan
+              <strong>keahlian hybrid</strong> yang unik: menggabungkan
+              pemahaman sistem mendalam dari <strong>IT Support</strong> dengan
+              keterampilan teknis dalam membangun
+              <strong>antarmuka web modern</strong>.
+            </p>
+
+            <p data-image-trigger="it-support">
+              <strong>Dibuktikan melalui pengalaman praktik kerja</strong> di
+              <strong>ITB</strong>, saya <strong>terampil</strong> dalam
+              <em>troubleshooting</em> (hardware, software, jaringan) dan
+              bertanggung jawab atas instalasi sistem serta konfigurasi.
+            </p>
+
+            <p data-image-trigger="web-dev">
+              Di sisi lain, saya juga mahir merancang
+              <strong>UI/UX</strong> yang intuitif dan responsif. Saya adalah
+              seorang <em>problem solver</em> yang berfokus pada
+              <strong>efisiensi dan inovasi</strong> di kedua bidang.
+            </p>
+
+            <div style="text-align: center; margin-top: 2rem">
+              <a
+                href="Profile.pdf"
+                class="btn-primary open-pdf-modal"
+                data-aos="fade-up"
+                data-aos-duration="600"
+                data-aos-delay="300"
+              >
+                Download Resume (PDF)
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="scrolly-visual-sticky-wrapper"
+            data-aos="fade-right"
+            data-aos-duration="800"
+          >
+            <div class="scrolly-visual-content">
+              <div class="scrolly-item active" data-image="profile">
+                <img
+                  id="profileImage"
+                  src="profile.jpg"
+                  alt="Foto Arvin Ramdhan Fakhrudin"
+                  loading="lazy"
+                  fetchpriority="high"
+                />
+              </div>
+
+              <div class="scrolly-item" data-image="it-support">
+                <i class="bi bi-hdd-network-fill"></i>
+                <p>IT Support & Infrastructure</p>
+              </div>
+
+              <div class="scrolly-item" data-image="web-dev">
+                <i class="bi bi-code-slash"></i>
+                <p>UI/UX & Web Development</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="content-section" id="why-me-section">
+        <h2 data-aos="fade-up" data-aos-duration="600">Nilai Proposisi Saya</h2>
+        <div class="bento-grid">
+          <div
+            class="bento-card span-2"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="400"
+          >
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <div class="terminal-buttons">
+                  <span class="term-btn term-close"></span>
+                  <span class="term-btn term-min"></span>
+                  <span class="term-btn term-max"></span>
+                </div>
+                <div class="terminal-title">arvin@portfolio: ~</div>
+              </div>
+
+              <div class="terminal-body" id="terminal-body">
+                <div id="terminal-output">
+                  <div>Welcome to my interactive terminal.</div>
+                  <div>Type 'help' to see available commands.</div>
+                </div>
+
+                <div class="terminal-line">
+                  <span class="prompt">arvin@portfolio:~$</span>
+                  <input
+                    type="text"
+                    id="terminal-input"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="none"
+                  />
+                  <span class="cursor" id="terminal-cursor">_</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bento-card span-2"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="100"
+          >
+            <h3>Fondasi Komputasi yang Kuat</h3>
+            <p>
+              Dengan latar belakang
+              <strong>Rekayasa Perangkat Lunak (SMK)</strong> dan pendidikan
+              <strong>S1 Informatika</strong> yang sedang berjalan (Estimasi
+              Lulus: 2028), saya memiliki pemahaman fundamental yang kuat dalam
+              Algoritma, OOP, dan Struktur Data. Ini menjadi
+              <strong>landasan saya</strong> dalam pengembangan sekaligus
+              <em>troubleshooting</em> sistem yang kompleks.
+            </p>
+          </div>
+          <div
+            class="bento-card"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="200"
+          >
+            <h3>Keahlian Operasional IT</h3>
+            <p>
+              Berpengalaman sebagai <strong>IT Support (PKL)</strong> di
+              <strong>Institut Teknologi Bandung (ITB)</strong>, saya
+              bertanggung jawab penuh atas instalasi sistem, konfigurasi
+              jaringan dasar, dan <em>troubleshooting</em> perangkat keras/lunak
+              untuk
+              <strong>memastikan kelancaran operasional teknologi.</strong>
+            </p>
+          </div>
+          <div
+            class="bento-card"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="300"
+          >
+            <h3>Kepemimpinan Kreatif & Kolaborasi Tim</h3>
+            <p>
+              Sebagai Ex
+              <strong>Co-Lead Creative & Media GDG Widyatama</strong>, saya
+              memimpin tim desain, mengelola kalender konten, dan menjamin
+              konsistensi <em>visual brand</em>. Peran ini
+              <strong>mengasah kemampuan saya</strong> dalam
+              <strong>manajemen tim</strong> dan
+              <strong>komunikasi efektif</strong> dalam lingkungan yang
+              kolaboratif.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="experience-section">
+        <h2 data-aos="fade-up" data-aos-duration="600">
+          Experience & Education
+        </h2>
+
+        <div
+          class="tab-buttons"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <button class="active" data-tab="experience">Experience</button>
+          <button data-tab="education">Education</button>
+        </div>
+
+        <div class="tab-content-container">
+          <div class="tab-content-panel active" id="tab-experience">
+            <div
+              class="education-entry"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
+              <h3>GDG on Campus Widyatama University</h3>
+              <span class="degree"
+                >Co-Lead Division Creative & Media (Nov 2024 - Okt 2025)</span
+              >
+              <p>
+                Mengelola strategi kreatif dan
+                <strong>mengoordinasikan tim</strong> untuk produksi aset desain
+                grafis dan video, guna
+                <strong>mendukung promosi acara</strong> dan
+                <em>branding</em> komunitas.
+              </p>
+            </div>
+            <div
+              class="education-entry"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
+              <h3>Institut Teknologi Bandung (ITB)</h3>
+              <span class="degree">IT Support (Agt 2023 - Okt 2023)</span>
+              <p>
+                Memberikan
+                <strong>dukungan teknis <em>end-to-end</em></strong> (hardware &
+                software), termasuk instalasi sistem, konfigurasi, dan
+                <em>troubleshooting</em> masalah jaringan.
+              </p>
+            </div>
+          </div>
+
+          <div class="tab-content-panel" id="tab-education">
+            <div
+              class="education-entry"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
+              <h3>Ma'soem University</h3>
+              <span class="degree"
+                >S1 Teknik Informatika (Sept 2024 - 2028)</span
+              >
+            </div>
+            <div
+              class="education-entry"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
+              <h3>SMK Al-Falah 2 Nagreg</h3>
+              <span class="degree">Rekayasa Perangkat Lunak (2021 - 2024)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="project-section">
+        <h2 data-aos="fade-up" data-aos-duration="600">Project Showcase</h2>
+
+        <div class="bento-grid">
+          <div
+            class="bento-card span-2"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <h3><i class="bi bi-boxes"></i> WMS Fullstack Project</h3>
+            <p>
+              A comprehensive
+              <strong>Warehouse Management System</strong> designed to
+              streamline inventory tracking and operations. Features include
+              real-time stock monitoring, transaction history, and detailed
+              analytics. Built with a modern fullstack architecture to ensure
+              scalability and performance.
+            </p>
+
+            <div
+              style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;"
+            >
+              <a
+                href="https://wms-project-4dtd.vercel.app/"
+                target="_blank"
+                class="btn-primary"
+                style="margin-top: 0; padding: 10px 20px; display: flex; align-items: center; gap: 8px;"
+              >
+                <i class="bi bi-rocket-takeoff-fill"></i> Live Demo
+              </a>
+              <a
+                href="https://github.com/ARVIN1006/wms-fullstack-project"
+                target="_blank"
+                class="btn-primary"
+                style="
+                  margin-top: 0; 
+                  padding: 10px 20px; 
+                  display: flex; 
+                  align-items: center; 
+                  gap: 8px;
+                  background-color: transparent; 
+                  border: 2px solid var(--primary-color); 
+                  color: var(--primary-color);
+                "
+                onmouseover="this.style.backgroundColor='var(--primary-color)'; this.style.color='var(--card-background)';"
+                onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--primary-color)';"
+              >
+                <i class="bi bi-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="certs-section">
+        <h2 data-aos="fade-up" data-aos-duration="600">
+          Tech Stack & Certifications
+        </h2>
+
+        <h3
+          class="sub-heading"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          My Hybrid Tech Stack
+        </h3>
+
+        <div
+          class="filter-buttons"
+          id="skillFilters"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+        >
+          <button data-filter="all" class="active">Semua</button>
+          <button data-filter="fe">Front-End Dev</button>
+          <button data-filter="it">IT Operations</button>
+          <button data-filter="basic">Fundamental TI</button>
+        </div>
+
+        <div
+          class="skill-list"
+          id="skillList"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="300"
+        >
+          <span class="skill-pill" data-category="it"
+            ><i class="bi bi-tools"></i> Troubleshooting</span
+          >
+          <span class="skill-pill" data-category="it"
+            ><i class="bi bi-motherboard"></i> Hardware Support</span
+          >
+          <span class="skill-pill" data-category="fe"
+            ><i class="bi bi-braces"></i> JavaScript</span
+          >
+          <span class="skill-pill" data-category="fe"
+            ><i class="bi bi-code-slash"></i> Front-End Development</span
+          >
+          <span class="skill-pill" data-category="fe"
+            ><i class="bi bi-globe"></i> Web Development</span
+          >
+          <span class="skill-pill" data-category="basic"
+            ><i class="bi bi-filetype-c"></i> C (Programming Language)</span
+          >
+          <span class="skill-pill" data-category="basic"
+            ><i class="bi bi-diagram-3"></i> OOP</span
+          >
+          <span class="skill-pill" data-category="it"
+            ><i class="bi bi-hdd-network"></i> Network Basics</span
+          >
+          <span class="skill-pill" data-category="it"
+            ><i class="bi bi-display"></i> Windows & Linux</span
+          >
+          <span class="skill-pill" data-category="fe"
+            ><i class="bi bi-git"></i> Git & GitHub</span
+          >
+          <span class="skill-pill" data-category="basic"
+            ><i class="bi bi-robot"></i> Artificial Intelligence</span
+          >
+        </div>
+
+        <h3
+          class="sub-heading"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="400"
+        >
+          Certifications
+        </h3>
+
+        <div
+          class="filter-buttons"
+          id="certFilters"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="500"
+        >
+          <button data-filter="all" class="active">Semua</button>
+          <button data-filter="fe">Development</button>
+          <button data-filter="it">IT Support/Uji</button>
+          <button data-filter="basic">Fundamental TI</button>
+        </div>
+
+        <div class="cert-grid" id="certGrid">
+          <div
+            class="cert-card"
+            data-category="fe"
+            data-aos="zoom-in"
+            data-aos-duration="600"
+            data-aos-delay="600"
+          >
+            <h3>Belajar Membuat Front-End Web untuk Pemula</h3>
+            <p>Dicoding Indonesia (Jan 2025)</p>
+            <a
+              href="https://www.dicoding.com/certificates/81P2L17WJZOY"
+              target="_blank"
+              class="cert-link"
+              >Lihat Kredensial &rarr;</a
+            >
+          </div>
+          <div
+            class="cert-card"
+            data-category="basic"
+            data-aos="zoom-in"
+            data-aos-duration="600"
+            data-aos-delay="700"
+          >
+            <h3>Belajar Dasar AI</h3>
+            <p>Dicoding Indonesia (Des 2024)</p>
+            <a
+              href="https://www.dicoding.com/certificates/1RXY25RLQXVM"
+              target="_blank"
+              class="cert-link"
+              >Lihat Kredensial &rarr;</a
+            >
+          </div>
+          <div
+            class="cert-card"
+            data-category="fe"
+            data-aos="zoom-in"
+            data-aos-duration="600"
+            data-aos-delay="800"
+          >
+            <h3>Belajar Dasar Pemrograman JavaScript</h3>
+            <p>Dicoding Indonesia (Des 2024)</p>
+            <a
+              href="https://www.dicoding.com/certificates/GRX54817KP0M"
+              target="_blank"
+              class="cert-link"
+              >Lihat Kredensial &rarr;</a
+            >
+          </div>
+          <div
+            class="cert-card"
+            data-category="it"
+            data-aos="zoom-in"
+            data-aos-duration="600"
+            data-aos-delay="900"
+          >
+            <h3>Sertifikat Uji Kompetensi</h3>
+            <p>Axioo Class Program (Mar 2024)</p>
+            <a href="sertifikat-axioo.pdf" class="cert-link open-pdf-modal"
+              >Lihat Sertifikat &rarr;</a
+            >
+          </div>
+          <div
+            class="cert-card"
+            data-category="it"
+            data-aos="zoom-in"
+            data-aos-duration="600"
+            data-aos-delay="1000"
+          >
+            <h3>Sertifikat Praktik Kerja Industri</h3>
+            <p>Institut Teknologi Bandung (Sep 2023)</p>
+            <a href="sertifikat-itb.pdf" class="cert-link open-pdf-modal"
+              >Lihat Sertifikat &rarr;</a
+            >
+          </div>
+          <div
+            class="cert-card"
+            data-category="basic"
+            data-aos="zoom-in"
+            data-aos-duration="600"
+            data-aos-delay="1100"
+          >
+            <h3>Memulai Pemrograman Dengan C</h3>
+            <p>Dicoding Indonesia (Nov 2024)</p>
+            <a
+              href="https://www.dicoding.com/certificates/81P24KYRJZOY"
+              target="_blank"
+              class="cert-link"
+              >Lihat Kredensial &rarr;</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="connect-section">
+        <h2 data-aos="fade-up" data-aos-duration="600">Let's Collaborate</h2>
+
+        <dotlottie-player
+          id="lottie-contact"
+          src="https://lottie.host/5a0937a0-0937-4f40-84c8-3c6f49007f35/Fz2N6x0h8i.json"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="100"
+        ></dotlottie-player>
+
+        <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          Mari terhubung! Kirimkan pesan atau kunjungi profil profesional saya.
+        </p>
+
+        <div
+          class="contact-buttons"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="300"
+        >
+          <a href="mailto:arvinramdhan1006@gmail.com" aria-label="Email">
+            <i class="bi bi-envelope-fill"></i>
+            Email
+          </a>
+          <a
+            href="https://wa.me/6282127666523"
+            target="_blank"
+            aria-label="WhatsApp"
+          >
+            <i class="bi bi-whatsapp"></i>
+            WhatsApp
+          </a>
+          <a
+            href="https://www.linkedin.com/in/arvin-ramdhan-fakhrudin"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="bi bi-linkedin"></i>
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/ARVIN1006"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <i class="bi bi-github"></i>
+            GitHub
+          </a>
+        </div>
+      </section>
+
+      <footer id="footer-section">
+        <div class="footer-content">
+          <a href="#welcome-section" id="back-to-top" class="footer-link">
+            Back to Top <i class="bi bi-arrow-up-circle"></i>
+          </a>
+
+          <p class="footer-copyright">© 2025 Arvin Ramdhan Fakhrudin</p>
+        </div>
+      </footer>
+    </main>
+
+    <div id="pdfModal" class="pdf-modal">
+      <div class="pdf-modal-content">
+        <span class="close-modal">&times;</span>
+        <iframe
+          id="pdfFrame"
+          src=""
+          width="100%"
+          height="100%"
+          frameborder="0"
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Scripts - Defer untuk performance -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+
+    <script src="script.js" defer></script>
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Arvin Ramdhan Fakhrudin",
+        "jobTitle": "Hybrid Developer & IT Support",
+        "url": "https://arvin.dev",
+        "sameAs": [
+          "https://www.linkedin.com/in/arvin-ramdhan-fakhrudin",
+          "https://github.com/ARVIN1006"
+        ],
+        "email": "arvinramdhan1006@gmail.com",
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Ma'soem University"
+        },
+        "knowsAbout": [
+          "Web Development",
+          "Front-End Development",
+          "IT Support",
+          "JavaScript",
+          "UI/UX Design",
+          "Troubleshooting"
+        ]
+      }
+    </script>
+  </body>
+</html>
