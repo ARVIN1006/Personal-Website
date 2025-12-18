@@ -27,7 +27,7 @@ This portfolio showcases my work and skills with a modern, premium design:
 
 ## 🔗 Live Demo
 
-Check out the live version here: [arvin.dev](https://arvin.dev) (or your netlify link)
+Check out the live version here: [arvin.dev](https://arvindev.netlify.app) 
 
 ---
 
