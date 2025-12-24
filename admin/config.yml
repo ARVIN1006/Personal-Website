@@ -1,0 +1,105 @@
+backend:
+  name: github
+  repo: ARVIN1006/Personal-Website
+  branch: main
+
+# This line allows running the CMS locally with `npx netlify-cms-proxy-server`
+local_backend: true
+
+media_folder: "media"
+public_folder: "media"
+
+collections:
+  - name: "content"
+    label: "Portfolio Content"
+    files:
+      - file: "data/content.json"
+        label: "Site Content"
+        name: "site_content"
+        fields:
+          - {
+              label: "Experience",
+              name: "experience",
+              widget: "list",
+              fields:
+                [
+                  {
+                    label: "Institution",
+                    name: "institution",
+                    widget: "string",
+                  },
+                  { label: "Role", name: "role", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "text",
+                    required: false,
+                  },
+                ],
+            }
+          - {
+              label: "Education",
+              name: "education",
+              widget: "list",
+              fields:
+                [
+                  {
+                    label: "Institution",
+                    name: "institution",
+                    widget: "string",
+                  },
+                  { label: "Role", name: "role", widget: "string" },
+                ],
+            }
+          - {
+              label: "Projects",
+              name: "projects",
+              widget: "list",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  {
+                    label: "Icon Class",
+                    name: "icon",
+                    widget: "string",
+                    default: "bi-boxes",
+                    hint: "Bootstrap Icon class (e.g., bi-boxes)",
+                  },
+                  { label: "Description", name: "description", widget: "text" },
+                  {
+                    label: "Demo Link",
+                    name: "demoLink",
+                    widget: "string",
+                    required: false,
+                  },
+                  {
+                    label: "Repo Link",
+                    name: "repoLink",
+                    widget: "string",
+                    required: false,
+                  },
+                ],
+            }
+          - {
+              label: "Certifications",
+              name: "certifications",
+              widget: "list",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Issuer", name: "issuer", widget: "string" },
+                  { label: "Link", name: "link", widget: "string" },
+                  {
+                    label: "Type",
+                    name: "type",
+                    widget: "select",
+                    options: ["fe", "it", "basic"],
+                  },
+                  {
+                    label: "Is PDF",
+                    name: "isPdf",
+                    widget: "boolean",
+                    default: false,
+                  },
+                ],
+            }

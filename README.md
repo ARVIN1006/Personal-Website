@@ -29,6 +29,29 @@ This portfolio showcases my work and skills with a modern, premium design:
 
 Check out the live version here: [arvin.dev](https://arvin.dev) (or your netlify link)
 
+## 📝 Content Management (CMS)
+
+This website uses **Decap CMS** to manage content (Experience, Education, Projects, Certifications) without editing HTML directly.
+
+### How to Update Content
+
+1. **Via Admin Panel (Local)**:
+
+   - Ensure your website is running (e.g., via "Live Server" at `http://127.0.0.1:5500`).
+   - Run the local proxy server in your terminal:
+     ```bash
+     npx netlify-cms-proxy-server
+     ```
+   - Go to `http://127.0.0.1:5500/admin/` (adjust the port to match your local server).
+   - You can now add/edit projects and certificates using the UI.
+
+2. **Via Code**:
+   - Edit the file `data/content.json` directly. The website generates the sections dynamically from this file.
+
+### CMS Configuration
+
+The CMS configuration is located at `admin/config.yml`. It is set up to use the Git Gateway backend, but for local development, `local_backend: true` is enabled.
+
 ---
 
 © 2025 Arvin Ramdhan Fakhrudin

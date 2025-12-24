@@ -338,14 +338,14 @@ Type 'help' for a list of commands.`;
         break;
     }
 
-      // Tambahkan respons ke output dengan error handling
-      try {
-        const responseElement = `<div class="terminal-response">${response}</div>`;
-        terminalOutput.innerHTML += responseElement;
-      } catch (error) {
-        console.error("Error displaying terminal response:", error);
-        terminalOutput.innerHTML += `<div class="terminal-response" style="color: #ff5f56;">Error: Failed to display response.</div>`;
-      }
+    // Tambahkan respons ke output dengan error handling
+    try {
+      const responseElement = `<div class="terminal-response">${response}</div>`;
+      terminalOutput.innerHTML += responseElement;
+    } catch (error) {
+      console.error("Error displaying terminal response:", error);
+      terminalOutput.innerHTML += `<div class="terminal-response" style="color: #ff5f56;">Error: Failed to display response.</div>`;
+    }
   }
 }
 
@@ -529,7 +529,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Panggil setup filters setelah DOM siap
   setupFilters("skillFilters", "skill-pill");
-  setupFilters("certFilters", "cert-card");
+  // setupFilters("certFilters", "cert-card") dipindahkan ke loadPortfolioData() setelah data dimuat
 
   // Panggil setup TABS
   setupTabs();
@@ -583,31 +583,33 @@ document.addEventListener("DOMContentLoaded", () => {
       pdfFrame.style.display = "none";
       pdfFrame.classList.remove("loaded");
       pdfLoader.classList.remove("hidden");
-      
+
       modal.classList.add("visible");
       body.classList.add("modal-open");
       if (cursorDot) cursorDot.classList.add("hidden");
-      
+
       // Set source dan handle loading
       pdfFrame.src = pdfUrl;
-      
+
       // Show loader saat PDF sedang dimuat
       pdfLoader.style.display = "flex";
-      
+
       // Handle PDF load success
-      pdfFrame.onload = function() {
+      pdfFrame.onload = function () {
         pdfLoader.classList.add("hidden");
         pdfFrame.style.display = "block";
         setTimeout(() => {
           pdfFrame.classList.add("loaded");
         }, 50);
       };
-      
+
       // Error handling untuk PDF loading
-      pdfFrame.onerror = function() {
+      pdfFrame.onerror = function () {
         console.error("Failed to load PDF:", pdfUrl);
         pdfLoader.classList.add("hidden");
-        alert("Maaf, dokumen PDF tidak dapat dimuat. Silakan coba lagi atau hubungi saya langsung.");
+        alert(
+          "Maaf, dokumen PDF tidak dapat dimuat. Silakan coba lagi atau hubungi saya langsung."
+        );
         closeModal();
       };
     } catch (error) {
@@ -635,7 +637,9 @@ document.addEventListener("DOMContentLoaded", () => {
         openModal(pdfUrl);
       } else {
         console.error("PDF URL is missing or empty");
-        alert("Link PDF tidak valid. Silakan hubungi saya untuk mendapatkan dokumen.");
+        alert(
+          "Link PDF tidak valid. Silakan hubungi saya untuk mendapatkan dokumen."
+        );
       }
     });
   });
@@ -662,10 +666,174 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- 18. FUNGSI LOAD DATA DARI JSON (CMS SUPPORT) ---
+  async function loadPortfolioData() {
+    try {
+      const response = await fetch("data/content.json");
+      if (!response.ok) throw new Error("Gagal mengambil data portfolio");
+      const data = await response.json();
+
+      // Render Experience
+      const experienceContainer = document.getElementById("tab-experience");
+      if (experienceContainer && data.experience) {
+        experienceContainer.innerHTML = data.experience
+          .map(
+            (exp, index) => `
+            <div
+              class="education-entry"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="${200 + index * 100}"
+            >
+              <h3>${exp.institution}</h3>
+              <span class="degree">${exp.role}</span>
+              ${exp.description ? `<p>${exp.description}</p>` : ""}
+            </div>
+          `
+          )
+          .join("");
+      }
+
+      // Render Education
+      const educationContainer = document.getElementById("tab-education");
+      if (educationContainer && data.education) {
+        educationContainer.innerHTML = data.education
+          .map(
+            (edu, index) => `
+            <div
+              class="education-entry"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="${200 + index * 100}"
+            >
+              <h3>${edu.institution}</h3>
+              <span class="degree">${edu.role}</span>
+            </div>
+          `
+          )
+          .join("");
+      }
+
+      // Render Projects
+      const projectContainer = document.getElementById("projectGrid");
+      if (projectContainer && data.projects) {
+        projectContainer.innerHTML = data.projects
+          .map(
+            (project) => `
+            <div
+              class="bento-card span-2"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
+              <h3><i class="bi ${project.icon}"></i> ${project.title}</h3>
+              <p>${project.description}</p>
+              <div
+                style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;"
+              >
+                ${
+                  project.demoLink
+                    ? `<a
+                  href="${project.demoLink}"
+                  target="_blank"
+                  class="btn-primary"
+                  style="margin-top: 0; padding: 10px 20px; display: flex; align-items: center; gap: 8px;"
+                >
+                  <i class="bi bi-rocket-takeoff-fill"></i> Live Demo
+                </a>`
+                    : ""
+                }
+                ${
+                  project.repoLink
+                    ? `<a
+                  href="${project.repoLink}"
+                  target="_blank"
+                  class="btn-primary"
+                  style="
+                    margin-top: 0; 
+                    padding: 10px 20px; 
+                    display: flex; 
+                    align-items: center; 
+                    gap: 8px;
+                    background-color: transparent; 
+                    border: 2px solid var(--primary-color); 
+                    color: var(--primary-color);
+                  "
+                  onmouseover="this.style.backgroundColor='var(--primary-color)'; this.style.color='var(--card-background)';"
+                  onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--primary-color)';"
+                >
+                  <i class="bi bi-github"></i> Repository
+                </a>`
+                    : ""
+                }
+              </div>
+            </div>
+          `
+          )
+          .join("");
+      }
+
+      // Render Certificates
+      const certContainer = document.getElementById("certGrid");
+      if (certContainer && data.certifications) {
+        certContainer.innerHTML = data.certifications
+          .map(
+            (cert, index) => `
+            <div
+              class="cert-card"
+              data-category="${cert.type}"
+              data-aos="zoom-in"
+              data-aos-duration="600"
+              data-aos-delay="${600 + index * 100}"
+            >
+              <h3>${cert.title}</h3>
+              <p>${cert.issuer}</p>
+              <a
+                href="${cert.link}"
+                ${cert.isPdf ? "" : 'target="_blank"'}
+                class="cert-link ${cert.isPdf ? "open-pdf-modal" : ""}"
+              >
+                ${cert.isPdf ? "Lihat Sertifikat" : "Lihat Kredensial"} &rarr;
+              </a>
+            </div>
+          `
+          )
+          .join("");
+
+        // Re-attach filters listener because new elements were added
+        setupFilters("certFilters", "cert-card");
+
+        // Re-attach PDF modal listeners
+        const newPdfLinks = document.querySelectorAll(".open-pdf-modal");
+        newPdfLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const pdfUrl = link.getAttribute("href");
+            if (pdfUrl && pdfUrl.trim() !== "") {
+              openModal(pdfUrl);
+            } else {
+              console.error("PDF URL is missing or empty");
+              alert("Link PDF tidak valid.");
+            }
+          });
+        });
+      }
+
+      // Refresh AOS
+      setTimeout(() => AOS.refresh(), 500);
+    } catch (error) {
+      console.error("Error loading portfolio data:", error);
+    }
+  }
+
+  // --- INITIAL LOAD & RESIZE ---
   window.addEventListener("load", () => {
     window.scrollTo(0, 0);
     setTimeout(() => preloader.classList.add("fade-out"), 1200);
     calculateWaypoints();
+
+    // Load data dynamically
+    loadPortfolioData();
+
     let resizeTimer;
     window.addEventListener("resize", () => {
       clearTimeout(resizeTimer);
@@ -784,7 +952,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // === LOGIKA BREADCRUMB NAVIGATION ===
   const breadcrumbNav = document.querySelector(".breadcrumb-nav");
   const currentSectionElement = document.getElementById("currentSection");
-  
+
   const sectionMap = {
     "about-section": "About",
     "why-me-section": "Value Proposition",
@@ -811,7 +979,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update breadcrumb text
     currentSectionElement.textContent = sectionMap[activeSection] || "About";
-    
+
     // Show breadcrumb setelah scroll dari welcome section
     if (scrollY > window.innerHeight * 0.5) {
       breadcrumbNav.classList.add("visible");
