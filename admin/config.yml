@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: ARVIN1006/Personal-Website
+  name: git-gateway
   branch: main
 
 # This line allows running the CMS locally with `npx netlify-cms-proxy-server`
