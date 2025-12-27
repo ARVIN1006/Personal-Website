@@ -13,12 +13,12 @@
   ],
   "education": [
     {
-      "institution": "Ma'soem University",
-      "role": "S1 Teknik Informatika (Sept 2024 - 2028)"
-    },
-    {
       "institution": "SMK Al-Falah 2 Nagreg",
       "role": "Rekayasa Perangkat Lunak (2021 - 2024)"
+    },
+    {
+      "institution": "Ma'soem University",
+      "role": "S1 Teknik Informatika (Sept 2024 - 2028)"
     }
   ],
   "projects": [
