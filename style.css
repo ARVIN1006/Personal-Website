@@ -82,16 +82,16 @@ body {
   background-color: var(--background);
   color: var(--text-primary);
   overflow-x: hidden;
-  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-              color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Smooth transition untuk elemen tertentu saat theme change */
 .theme-transition {
   transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Apply smooth transition ke elemen utama */
@@ -111,9 +111,9 @@ body {
 .pdf-modal-content,
 .breadcrumb-nav {
   transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.modal-open {
@@ -1006,11 +1006,11 @@ SCROLLYTELLING ABOUT SECTION
     left: 10px;
     font-size: 0.85rem;
   }
-  
+
   .breadcrumb-list {
     padding: 0.5rem 1rem;
   }
-  
+
   /* ▼▼▼ PERBAIKAN STYLE RESPONSIVE SCROLLYTELLING ▼▼▼ */
   .scrolly-layout {
     flex-direction: column; /* Tumpuk vertikal */
@@ -1118,6 +1118,15 @@ SCROLLYTELLING ABOUT SECTION
   /* SEMBUNYIKAN TOMBOL SCROLL DI MOBILE */
   #scrollToggle {
     display: none;
+  }
+
+  /* FORCE VISIBILITY OF AOS ELEMENTS ON MOBILE */
+  /* Fix: Konten hilang karena AOS disabled di HP tapi CSS tetap menyembunyikan elemen */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
   }
 }
 @media (max-width: 640px) {
