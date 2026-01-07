@@ -85,12 +85,12 @@
     <header class="hero-section">
       <div class="container hero-container">
         <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
-          <span class="line-1">CRAFTING</span>
-          <span class="line-2">THE WEB</span>
+          <span class="line-1" id="hero-title-1">CRAFTING</span>
+          <span class="line-2" id="hero-title-2">THE WEB</span>
         </h1>
         <div class="hero-meta" data-aos="fade-up" data-aos-delay="200">
-          <p class="role-text">MODERN WEB DEVELOPER</p>
-          <p class="desc-text">
+          <p class="role-text" id="hero-role">MODERN WEB DEVELOPER</p>
+          <p class="desc-text" id="hero-desc">
             Building <strong>Cinematic</strong> and
             <strong>Performant</strong> digital experiences. <br />Merging code
             with creativity.
@@ -114,32 +114,6 @@
         <!-- Dynamic Project List Container -->
         <div class="project-list" id="project-list-container">
           <!-- Content injected by script.js -->
-          <!-- Skeleton Loading State -->
-          <article class="project-item">
-            <div class="project-info">
-              <div class="skeleton skeleton-number"></div>
-              <div class="skeleton skeleton-title"></div>
-              <div class="skeleton skeleton-text" style="width: 80%"></div>
-              <div class="skeleton skeleton-text" style="width: 60%"></div>
-              <div class="skeleton skeleton-btn"></div>
-            </div>
-            <div class="project-visual">
-              <div class="project-img-wrapper skeleton"></div>
-            </div>
-          </article>
-
-          <article class="project-item">
-            <div class="project-info">
-              <div class="skeleton skeleton-number"></div>
-              <div class="skeleton skeleton-title"></div>
-              <div class="skeleton skeleton-text" style="width: 80%"></div>
-              <div class="skeleton skeleton-text" style="width: 60%"></div>
-              <div class="skeleton skeleton-btn"></div>
-            </div>
-            <div class="project-visual">
-              <div class="project-img-wrapper skeleton"></div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -156,24 +130,29 @@
               loading="lazy"
               width="400"
               height="500"
+              id="about-img"
             />
           </div>
           <div class="about-content" data-aos="fade-left">
-            <h2 class="about-heading">Engineering the<br />Modern Web.</h2>
-            <p class="about-text">
-              I am Arvin Ramdhan Fakhrudin, a <strong>Web Developer</strong> and
-              Informatics Undergraduate at
-              <span class="highlight">Ma'soem University</span>.
-            </p>
-            <p class="about-text">
-              My passion lies in crafting digital experiences that are not just
-              functional, but <em>cinematic</em>. I believe in interfaces that
-              feel intuitive and alive, backed by clean, performant code.
-            </p>
-            <p class="about-text">
-              I specialize in building responsive websites, interactive
-              dashboards, and scalable frontend architectures.
-            </p>
+            <h2 class="about-heading" id="about-heading">
+              Engineering the<br />Modern Web.
+            </h2>
+            <div id="about-text-container">
+              <p class="about-text">
+                I am Arvin Ramdhan Fakhrudin, a
+                <strong>Web Developer</strong> and Informatics Undergraduate at
+                <span class="highlight">Ma'soem University</span>.
+              </p>
+              <p class="about-text">
+                My passion lies in crafting digital experiences that are not
+                just functional, but <em>cinematic</em>. I believe in interfaces
+                that feel intuitive and alive, backed by clean, performant code.
+              </p>
+              <p class="about-text">
+                I specialize in building responsive websites, interactive
+                dashboards, and scalable frontend architectures.
+              </p>
+            </div>
 
             <div class="stats-row">
               <div class="stat-item">
@@ -187,7 +166,9 @@
             </div>
 
             <div class="action-row">
-              <a href="Profile.pdf" class="btn-primary">Download Resume</a>
+              <a href="Profile.pdf" class="btn-primary" id="about-resume-link"
+                >Download Resume</a
+              >
             </div>
           </div>
         </div>
@@ -198,7 +179,7 @@
     <footer id="contact" class="footer-section">
       <div class="container">
         <div class="footer-content">
-          <h2 class="footer-cta">Start a Project.</h2>
+          <h2 class="footer-cta" id="footer-cta">Start a Project.</h2>
           <div class="footer-links">
             <a href="mailto:arvinramdhan1006@gmail.com" class="footer-link"
               >Email</a
@@ -222,7 +203,9 @@
               >WhatsApp</a
             >
           </div>
-          <p class="copyright">&copy; 2025 Arvin Ramdhan. Web Developer.</p>
+          <p class="copyright" id="footer-copyright">
+            &copy; 2025 Arvin Ramdhan. Web Developer.
+          </p>
         </div>
       </div>
     </footer>

@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   branch: main
 
-# This line allows running the CMS locally with `npx netlify-cms-proxy-server`
 local_backend: true
 
 media_folder: "media"
@@ -13,13 +12,42 @@ collections:
     label: "Portfolio Content"
     files:
       - file: "data/content.json"
-        label: "Projects & Work"
-        name: "projects_data"
+        label: "Global Site Content"
+        name: "site_data"
         fields:
+          # HERO SECTION
+          - {
+              label: "Hero Section",
+              name: "hero",
+              widget: "object",
+              collapsed: false,
+              fields:
+                [
+                  {
+                    label: "Title Line 1",
+                    name: "title_line_1",
+                    widget: "string",
+                  },
+                  {
+                    label: "Title Line 2",
+                    name: "title_line_2",
+                    widget: "string",
+                  },
+                  { label: "Role Text", name: "role_text", widget: "string" },
+                  {
+                    label: "Description (HTML allowed)",
+                    name: "description",
+                    widget: "string",
+                  },
+                ],
+            }
+
+          # PROJECTS SECTION
           - {
               label: "Selected Work",
               name: "projects",
               widget: "list",
+              collapsed: true,
               fields:
                 [
                   {
@@ -57,6 +85,62 @@ collections:
                     name: "image_url",
                     widget: "string",
                     hint: "Use thum.io link or upload image",
+                  },
+                ],
+            }
+
+          # ABOUT SECTION
+          - {
+              label: "About Section",
+              name: "about",
+              widget: "object",
+              collapsed: true,
+              fields:
+                [
+                  { label: "Heading", name: "heading", widget: "string" },
+                  {
+                    label: "Bio Text (Paragraph 1)",
+                    name: "text_1",
+                    widget: "text",
+                  },
+                  {
+                    label: "Bio Text (Paragraph 2)",
+                    name: "text_2",
+                    widget: "text",
+                  },
+                  {
+                    label: "Bio Text (Paragraph 3)",
+                    name: "text_3",
+                    widget: "text",
+                  },
+                  {
+                    label: "Profile Image",
+                    name: "image_url",
+                    widget: "image",
+                    required: false,
+                  },
+                  {
+                    label: "Resume File",
+                    name: "resume_link",
+                    widget: "file",
+                    required: false,
+                  },
+                ],
+            }
+
+          # FOOTER SECTION
+          - {
+              label: "Footer Section",
+              name: "footer",
+              widget: "object",
+              collapsed: true,
+              fields:
+                [
+                  { label: "CTA Text", name: "cta_text", widget: "string" },
+                  {
+                    label: "Copyright Text",
+                    name: "copyright",
+                    widget: "string",
                   },
                 ],
             }

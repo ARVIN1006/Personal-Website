@@ -1,4 +1,10 @@
 {
+  "hero": {
+    "title_line_1": "CRAFTING",
+    "title_line_2": "THE WEB",
+    "role_text": "MODERN WEB DEVELOPER",
+    "description": "Building <strong>Cinematic</strong> and <strong>Performant</strong> digital experiences. <br />Merging code with creativity."
+  },
   "projects": [
     {
       "number": "01",
@@ -27,5 +33,17 @@
       "btn_text": "You Are Here",
       "image_url": "https://image.thum.io/get/width/1200/crop/800/noanimate/https://arvin-portfolio-preview.vercel.app/"
     }
-  ]
+  ],
+  "about": {
+    "heading": "Engineering the<br />Modern Web.",
+    "text_1": "I am Arvin Ramdhan Fakhrudin, a <strong>Web Developer</strong> and Informatics Undergraduate at <span class=\"highlight\">Ma'soem University</span>.",
+    "text_2": "My passion lies in crafting digital experiences that are not just functional, but <em>cinematic</em>. I believe in interfaces that feel intuitive and alive, backed by clean, performant code.",
+    "text_3": "I specialize in building responsive websites, interactive dashboards, and scalable frontend architectures.",
+    "image_url": "profile.jpg",
+    "resume_link": "Profile.pdf"
+  },
+  "footer": {
+    "cta_text": "Start a Project.",
+    "copyright": "&copy; 2025 Arvin Ramdhan. Web Developer."
+  }
 }
