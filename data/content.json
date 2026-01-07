@@ -1,77 +1,31 @@
 {
-  "experience": [
-    {
-      "institution": "GDG on Campus Widyatama University",
-      "role": "Co-Lead Division Creative & Media (Nov 2024 - Okt 2025)",
-      "description": "Mengelola strategi kreatif dan <strong>mengoordinasikan tim</strong> untuk produksi aset desain grafis dan video, guna <strong>mendukung promosi acara</strong> dan <em>branding</em> komunitas."
-    },
-    {
-      "institution": "Institut Teknologi Bandung (ITB)",
-      "role": "IT Support (Agt 2023 - Okt 2023)",
-      "description": "Memberikan <strong>dukungan teknis <em>end-to-end</em></strong> (hardware & software), termasuk instalasi sistem, konfigurasi, dan <em>troubleshooting</em> masalah jaringan."
-    }
-  ],
-  "education": [
-    {
-      "institution": "SMK Al-Falah 2 Nagreg",
-      "role": "Rekayasa Perangkat Lunak (2021 - 2024)"
-    },
-    {
-      "institution": "Ma'soem University",
-      "role": "S1 Teknik Informatika (Sept 2024 - 2028)"
-    }
-  ],
   "projects": [
     {
-      "title": "WMS Fullstack Project",
-      "icon": "bi-boxes",
-      "description": "A comprehensive <strong>Warehouse Management System</strong> designed to streamline inventory tracking and operations. Features include real-time stock monitoring, transaction history, and detailed analytics. Built with a modern fullstack architecture to ensure scalability and performance.",
-      "demoLink": "https://wms-project-4dtd.vercel.app/",
-      "repoLink": "https://github.com/ARVIN1006/wms-fullstack-project"
-    }
-  ],
-  "certifications": [
-    {
-      "title": "Belajar Membuat Front-End Web untuk Pemula",
-      "issuer": "Dicoding Indonesia (Jan 2025)",
-      "link": "https://www.dicoding.com/certificates/81P2L17WJZOY",
-      "type": "fe",
-      "isPdf": false
+      "number": "01",
+      "title": "Smart WMS",
+      "subtitle": "Enterprise Warehouse Management System",
+      "tech_stack": ["React / Next.js", "Dashboard UI", "Inventory Logic"],
+      "live_link": "https://wms-project-4dtd.vercel.app/",
+      "btn_text": "Live Demo",
+      "image_url": "https://image.thum.io/get/width/1200/crop/800/noanimate/https://wms-project-4dtd.vercel.app/"
     },
     {
-      "title": "Belajar Dasar AI",
-      "issuer": "Dicoding Indonesia (Des 2024)",
-      "link": "https://www.dicoding.com/certificates/1RXY25RLQXVM",
-      "type": "basic",
-      "isPdf": false
+      "number": "02",
+      "title": "Web Crave",
+      "subtitle": "Creative Digital Agency Platform",
+      "tech_stack": ["Modern UI/UX", "Responsive Design", "Netlify"],
+      "live_link": "https://web-crave.netlify.app/",
+      "btn_text": "Visit Site",
+      "image_url": "https://image.thum.io/get/width/1200/crop/800/noanimate/https://web-crave.netlify.app/"
     },
     {
-      "title": "Belajar Dasar Pemrograman JavaScript",
-      "issuer": "Dicoding Indonesia (Des 2024)",
-      "link": "https://www.dicoding.com/certificates/GRX54817KP0M",
-      "type": "fe",
-      "isPdf": false
-    },
-    {
-      "title": "Sertifikat Uji Kompetensi",
-      "issuer": "Axioo Class Program (Mar 2024)",
-      "link": "sertifikat-axioo.pdf",
-      "type": "it",
-      "isPdf": true
-    },
-    {
-      "title": "Sertifikat Praktik Kerja Industri",
-      "issuer": "Institut Teknologi Bandung (Sep 2023)",
-      "link": "sertifikat-itb.pdf",
-      "type": "it",
-      "isPdf": true
-    },
-    {
-      "title": "Memulai Pemrograman Dengan C",
-      "issuer": "Dicoding Indonesia (Nov 2024)",
-      "link": "https://www.dicoding.com/certificates/81P24KYRJZOY",
-      "type": "basic",
-      "isPdf": false
+      "number": "03",
+      "title": "Portfolio v2",
+      "subtitle": "Cinematic Personal Branding",
+      "tech_stack": ["HTML5 Semantic", "Cinematic CSS", "Micro-Interactions"],
+      "live_link": "#",
+      "btn_text": "You Are Here",
+      "image_url": "https://image.thum.io/get/width/1200/crop/800/noanimate/https://arvin-portfolio-preview.vercel.app/"
     }
   ]
 }

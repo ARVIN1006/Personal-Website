@@ -13,92 +13,49 @@ collections:
     label: "Portfolio Content"
     files:
       - file: "data/content.json"
-        label: "Site Content"
-        name: "site_content"
+        label: "Projects & Work"
+        name: "projects_data"
         fields:
           - {
-              label: "Experience",
-              name: "experience",
-              widget: "list",
-              fields:
-                [
-                  {
-                    label: "Institution",
-                    name: "institution",
-                    widget: "string",
-                  },
-                  { label: "Role", name: "role", widget: "string" },
-                  {
-                    label: "Description",
-                    name: "description",
-                    widget: "text",
-                    required: false,
-                  },
-                ],
-            }
-          - {
-              label: "Education",
-              name: "education",
-              widget: "list",
-              fields:
-                [
-                  {
-                    label: "Institution",
-                    name: "institution",
-                    widget: "string",
-                  },
-                  { label: "Role", name: "role", widget: "string" },
-                ],
-            }
-          - {
-              label: "Projects",
+              label: "Selected Work",
               name: "projects",
               widget: "list",
               fields:
                 [
+                  {
+                    label: "Number (01, 02)",
+                    name: "number",
+                    widget: "string",
+                  },
                   { label: "Title", name: "title", widget: "string" },
                   {
-                    label: "Icon Class",
-                    name: "icon",
+                    label: "Subtitle/Concept",
+                    name: "subtitle",
                     widget: "string",
-                    default: "bi-boxes",
-                    hint: "Bootstrap Icon class (e.g., bi-boxes)",
                   },
-                  { label: "Description", name: "description", widget: "text" },
                   {
-                    label: "Demo Link",
-                    name: "demoLink",
+                    label: "Tech Stack",
+                    name: "tech_stack",
+                    widget: "list",
+                    summary: "{{fields.item}}",
+                  },
+                  {
+                    label: "Live Link",
+                    name: "live_link",
                     widget: "string",
                     required: false,
                   },
                   {
-                    label: "Repo Link",
-                    name: "repoLink",
+                    label: "Button Text",
+                    name: "btn_text",
                     widget: "string",
-                    required: false,
-                  },
-                ],
-            }
-          - {
-              label: "Certifications",
-              name: "certifications",
-              widget: "list",
-              fields:
-                [
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Issuer", name: "issuer", widget: "string" },
-                  { label: "Link", name: "link", widget: "string" },
-                  {
-                    label: "Type",
-                    name: "type",
-                    widget: "select",
-                    options: ["fe", "it", "basic"],
+                    default: "View Project",
                   },
                   {
-                    label: "Is PDF",
-                    name: "isPdf",
-                    widget: "boolean",
-                    default: false,
+                    label: "Image URL",
+                    name: "image_url",
+                    widget: "string",
+                    hint: "Use thum.io link or upload image",
                   },
                 ],
             }
