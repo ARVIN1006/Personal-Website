@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             src="${project.image_url}" 
                             alt="${project.title} Preview" 
                             loading="lazy" 
-                            onerror="this.src='profile.jpg'"
+                            onerror="this.src='media/Profile.jpg'"
                         >
                     </div>
                 </div>
@@ -68,8 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tech_stack: ["Next.js", "React", "Dashboard"],
           live_link: "https://wms-project-4dtd.vercel.app/",
           btn_text: "Live Demo",
-          image_url:
-            "https://image.thum.io/get/width/1200/crop/800/noanimate/https://wms-project-4dtd.vercel.app/",
+          image_url: "media/wms-preview.png",
         },
         {
           number: "02",
@@ -78,8 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tech_stack: ["Netlify", "UI/UX", "Modern Web"],
           live_link: "https://web-crave.netlify.app/",
           btn_text: "Visit Site",
-          image_url:
-            "https://image.thum.io/get/width/1200/crop/800/noanimate/https://web-crave.netlify.app/",
+          image_url: "media/webcrave-preview.png",
         },
         {
           number: "03",
@@ -88,8 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tech_stack: ["Cinematic CSS", "Micro-Interactions"],
           live_link: "#",
           btn_text: "You Are Here",
-          image_url:
-            "https://image.thum.io/get/width/1200/crop/800/noanimate/https://arvin-portfolio-preview.vercel.app/",
+          image_url: "media/portfolio-preview.png",
         },
       ];
 

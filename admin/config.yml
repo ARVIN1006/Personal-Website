@@ -83,7 +83,7 @@ collections:
                   {
                     label: "Image URL",
                     name: "image_url",
-                    widget: "string",
+                    widget: "image",
                     hint: "Use thum.io link or upload image",
                   },
                 ],
