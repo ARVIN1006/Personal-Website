@@ -37,7 +37,8 @@ collections:
                     label: "Tech Stack",
                     name: "tech_stack",
                     widget: "list",
-                    summary: "{{fields.item}}",
+                    field:
+                      { label: "Technology", name: "tech", widget: "string" },
                   },
                   {
                     label: "Live Link",

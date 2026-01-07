@@ -1,65 +1,148 @@
 /* === CINEMATIC INTERACTION ENGINE === */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Fetch & Render Data First
-  fetch("data/content.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const container = document.getElementById("project-list-container");
-      if (data.projects && container) {
-        container.innerHTML = data.projects
+  // 1. Robust Async Data Loading
+  const loadContent = async () => {
+    const container = document.getElementById("project-list-container");
+    if (!container) return;
+
+    try {
+      const response = await fetch("data/content.json");
+      if (!response.ok) throw new Error("Failed to load content");
+
+      const data = await response.json();
+
+      if (data.projects && data.projects.length > 0) {
+        // Build HTML
+        const projectHTML = data.projects
           .map(
             (project) => `
-                <article class="project-item" data-aos="fade-up">
-                    <div class="project-info">
-                        <span class="project-number">${project.number}</span>
-                        <h3 class="project-title">${project.title}</h3>
-                        <p class="project-desc">${project.subtitle}</p>
-                        <ul class="tech-stack">
-                            ${project.tech_stack
-                              .map((tech) => `<li>${tech}</li>`)
-                              .join("")}
-                        </ul>
-                        <a href="${
-                          project.live_link
-                        }" target="_blank" class="btn-link">
-                            ${
-                              project.btn_text
-                            } <i class="bi bi-arrow-right"></i>
-                        </a>
+            <article class="project-item fade-in" data-aos="fade-up">
+                <div class="project-info">
+                    <span class="project-number">${project.number}</span>
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-desc">${project.subtitle}</p>
+                    <ul class="tech-stack">
+                        ${(project.tech_stack || [])
+                          .map((tech) => `<li>${tech}</li>`)
+                          .join("")}
+                    </ul>
+                    <a href="${
+                      project.live_link || "#"
+                    }" target="_blank" class="btn-link">
+                        ${
+                          project.btn_text || "View Project"
+                        } <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-visual">
+                    <div class="project-img-wrapper">
+                        <img 
+                            src="${project.image_url}" 
+                            alt="${project.title} Preview" 
+                            loading="lazy" 
+                            onerror="this.src='profile.jpg'"
+                        >
                     </div>
-                    <div class="project-visual">
-                        <div class="project-img-wrapper">
-                            <img src="${project.image_url}" alt="${
+                </div>
+            </article>
+        `
+          )
+          .join("");
+
+        // Inject and Animate
+        container.innerHTML = projectHTML;
+      }
+    } catch (error) {
+      console.warn(
+        "Content load failed (likely CORS or missing file). Using fallback data for preview.",
+        error
+      );
+
+      // Fallback Data for Local Preview
+      const fallbackData = [
+        {
+          number: "01",
+          title: "Smart WMS",
+          subtitle: "Enterprise Warehouse Management System",
+          tech_stack: ["Next.js", "React", "Dashboard"],
+          live_link: "https://wms-project-4dtd.vercel.app/",
+          btn_text: "Live Demo",
+          image_url:
+            "https://image.thum.io/get/width/1200/crop/800/noanimate/https://wms-project-4dtd.vercel.app/",
+        },
+        {
+          number: "02",
+          title: "Web Crave",
+          subtitle: "Creative Digital Agency Platform",
+          tech_stack: ["Netlify", "UI/UX", "Modern Web"],
+          live_link: "https://web-crave.netlify.app/",
+          btn_text: "Visit Site",
+          image_url:
+            "https://image.thum.io/get/width/1200/crop/800/noanimate/https://web-crave.netlify.app/",
+        },
+        {
+          number: "03",
+          title: "Portfolio v2",
+          subtitle: "Cinematic Personal Branding",
+          tech_stack: ["Cinematic CSS", "Micro-Interactions"],
+          live_link: "#",
+          btn_text: "You Are Here",
+          image_url:
+            "https://image.thum.io/get/width/1200/crop/800/noanimate/https://arvin-portfolio-preview.vercel.app/",
+        },
+      ];
+
+      const container = document.getElementById("project-list-container");
+      if (container) {
+        container.innerHTML = fallbackData
+          .map(
+            (project) => `
+            <article class="project-item fade-in" data-aos="fade-up">
+                <div class="project-info">
+                    <span class="project-number">${project.number}</span>
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-desc">${project.subtitle}</p>
+                    <ul class="tech-stack">
+                        ${(project.tech_stack || [])
+                          .map((tech) => `<li>${tech}</li>`)
+                          .join("")}
+                    </ul>
+                    <a href="${
+                      project.live_link
+                    }" target="_blank" class="btn-link">
+                        ${project.btn_text} <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-visual">
+                    <div class="project-img-wrapper">
+                        <img src="${project.image_url}" alt="${
               project.title
             } Preview" loading="lazy" onerror="this.src='profile.jpg'">
-                        </div>
                     </div>
-                </article>
-            `
+                </div>
+            </article>
+        `
           )
           .join("");
       }
-
-      // 2. Init AOS *After* Content is Loaded
-      setTimeout(() => {
+    } finally {
+      // 2. Always Init AOS (even if fetch fails, to animate other parts)
+      // Small delay to ensure DOM is painted
+      requestAnimationFrame(() => {
         AOS.init({
           duration: 1200,
           easing: "cubic-bezier(0.2, 1, 0.3, 1)",
           once: true,
           offset: 80,
         });
-      }, 100);
-    })
-    .catch((err) => {
-      console.error("Error loading content:", err);
-      // Fallback or keep loading state
-      AOS.init({
-        duration: 1200,
-        easing: "cubic-bezier(0.2, 1, 0.3, 1)",
-        once: true,
+        // Check for parallax refresh
+        setTimeout(() => AOS.refresh(), 500);
       });
-    });
+    }
+  };
+
+  loadContent();
 
   // 2. Custom Cursor (Double Layer)
   const cursorDot = document.querySelector(".cursor-dot");
