@@ -15,39 +15,60 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data.projects && data.projects.length > 0) {
         // Build HTML
         const projectHTML = data.projects
-          .map(
-            (project) => `
-            <article class="project-item fade-in" data-aos="fade-up">
-                <div class="project-info">
-                    <span class="project-number">${project.number}</span>
-                    <h3 class="project-title">${project.title}</h3>
-                    <p class="project-desc">${project.subtitle}</p>
-                    <ul class="tech-stack">
+          .map((project, index) => {
+            // Alternating Layout Logic for Desktop
+            const isEven = index % 2 !== 0;
+            const orderInfo = isEven ? "lg:order-2" : "lg:order-1";
+            const orderVisual = isEven ? "lg:order-1" : "lg:order-2";
+
+            return `
+            <article class="group relative flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-16 mb-24 lg:mb-40 items-center fade-in" data-aos="fade-up">
+                
+                <!-- Info Side -->
+                <div class="lg:col-span-5 project-info ${orderInfo}">
+                    <span class="block font-serif text-3xl lg:text-4xl text-studio-gray opacity-30 mb-4">${
+                      project.number
+                    }</span>
+                    <h3 class="text-4xl lg:text-5xl font-bold mb-2 tracking-tight">${
+                      project.title
+                    }</h3>
+                    <p class="text-lg text-studio-gray mb-6">${
+                      project.subtitle
+                    }</p>
+                    
+                    <ul class="flex flex-wrap gap-4 mb-8 text-sm opacity-80">
                         ${(project.tech_stack || [])
-                          .map((tech) => `<li>${tech}</li>`)
+                          .map(
+                            (tech) =>
+                              `<li><span class="px-3 py-1 border border-white/20 rounded-full">${tech}</span></li>`
+                          )
                           .join("")}
                     </ul>
+                    
                     <a href="${
                       project.live_link || "#"
-                    }" target="_blank" class="btn-link">
+                    }" target="_blank" class="inline-flex items-center gap-2 border-b border-white pb-1 font-semibold hover:text-studio-accent hover:border-studio-accent transition-all group-hover:gap-4">
                         ${
                           project.btn_text || "View Project"
                         } <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-                <div class="project-visual">
-                    <div class="project-img-wrapper">
+
+                <!-- Visual Side -->
+                <div class="lg:col-span-7 w-full ${orderVisual}">
+                    <div class="w-full aspect-video bg-studio-soft border border-white/10 rounded overflow-hidden flex items-center justify-center relative">
                         <img 
                             src="${project.image_url}" 
                             alt="${project.title} Preview" 
+                            class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                             loading="lazy" 
                             onerror="this.src='media/Profile.jpg'"
                         >
                     </div>
                 </div>
             </article>
-        `
-          )
+        `;
+          })
           .join("");
 
         // Inject and Animate
@@ -93,34 +114,47 @@ document.addEventListener("DOMContentLoaded", () => {
       const container = document.getElementById("project-list-container");
       if (container) {
         container.innerHTML = fallbackData
-          .map(
-            (project) => `
-            <article class="project-item fade-in" data-aos="fade-up">
-                <div class="project-info">
-                    <span class="project-number">${project.number}</span>
-                    <h3 class="project-title">${project.title}</h3>
-                    <p class="project-desc">${project.subtitle}</p>
-                    <ul class="tech-stack">
+          .map((project, index) => {
+            const isEven = index % 2 !== 0;
+            const orderInfo = isEven ? "lg:order-2" : "lg:order-1";
+            const orderVisual = isEven ? "lg:order-1" : "lg:order-2";
+
+            return `
+            <article class="group relative flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-16 mb-24 lg:mb-40 items-center fade-in" data-aos="fade-up">
+                <div class="lg:col-span-5 project-info ${orderInfo}">
+                    <span class="block font-serif text-3xl lg:text-4xl text-studio-gray opacity-30 mb-4">${
+                      project.number
+                    }</span>
+                    <h3 class="text-4xl lg:text-5xl font-bold mb-2 tracking-tight">${
+                      project.title
+                    }</h3>
+                    <p class="text-lg text-studio-gray mb-6">${
+                      project.subtitle
+                    }</p>
+                    <ul class="flex flex-wrap gap-4 mb-8 text-sm opacity-80">
                         ${(project.tech_stack || [])
-                          .map((tech) => `<li>${tech}</li>`)
+                          .map(
+                            (tech) =>
+                              `<li><span class="px-3 py-1 border border-white/20 rounded-full">${tech}</span></li>`
+                          )
                           .join("")}
                     </ul>
                     <a href="${
                       project.live_link
-                    }" target="_blank" class="btn-link">
+                    }" target="_blank" class="inline-flex items-center gap-2 border-b border-white pb-1 font-semibold hover:text-studio-accent hover:border-studio-accent transition-all group-hover:gap-4">
                         ${project.btn_text} <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-                <div class="project-visual">
-                    <div class="project-img-wrapper">
+                <div class="lg:col-span-7 w-full ${orderVisual}">
+                    <div class="w-full aspect-video bg-studio-soft border border-white/10 rounded overflow-hidden flex items-center justify-center relative">
                         <img src="${project.image_url}" alt="${
               project.title
-            } Preview" loading="lazy" onerror="this.src='profile.jpg'">
+            } Preview" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.src='media/Profile.jpg'">
                     </div>
                 </div>
             </article>
-        `
-          )
+        `;
+          })
           .join("");
       }
     } finally {
