@@ -1,3 +1,20 @@
+html {
+  scroll-padding-top: 5rem; /* Menghindari fixed nav yang menutupi konten */
+  scroll-snap-type: y proximity; /* Animasi snapping halus saat mendekati section */
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 8rem;
+  }
+}
+
+section,
+header,
+footer {
+  scroll-snap-align: start;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,11 +62,13 @@ button {
   background: white;
   border-radius: 50%;
   position: fixed;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s;
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  will-change: transform;
 }
 
 .cursor-circle {
@@ -58,20 +77,23 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   position: fixed;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: 0.1s ease-out;
+  transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s;
+  will-change: transform;
 }
 
-/* Hover States managed by JS adding class to body, or direct hover */
+/* Hover States managed by JS adding class to body */
 body.hover-active .cursor-dot {
   width: 12px;
   height: 12px;
   background: #3b82f6; /* Accent Blue */
 }
 body.hover-active .cursor-circle {
-  transform: translate(-50%, -50%) scale(1.5);
+  width: 60px;
+  height: 60px;
   border-color: #3b82f6;
   opacity: 0.5;
 }

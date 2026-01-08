@@ -26,8 +26,21 @@
     />
     <meta property="og:image" content="media/Profile.jpg" />
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Arvin Ramdhan — Web Developer" />
+    <meta
+      name="twitter:description"
+      content="Building cinematic and performant digital experiences. Web developer portfolio of Arvin Ramdhan."
+    />
+    <meta name="twitter:image" content="media/Profile.jpg" />
+
+    <!-- Preconnect & DNS Prefetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
       rel="stylesheet"
@@ -40,6 +53,23 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="output.css" />
     <link rel="icon" type="image/jpeg" href="media/Profile.jpg" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Arvin Ramdhan",
+        "url": "https://arvin-portfolio.vercel.app/",
+        "image": "https://arvin-portfolio.vercel.app/media/Profile.jpg",
+        "jobTitle": "Web Developer",
+        "sameAs": [
+          "https://github.com/ARVIN1006",
+          "https://linkedin.com"
+        ],
+        "description": "Arvin Ramdhan is a Web Developer specializing in cinematic and performant digital experiences."
+      }
+    </script>
   </head>
   <body
     class="bg-studio-black text-studio-white antialiased overflow-x-hidden selection:bg-studio-accent selection:text-white"
@@ -126,9 +156,11 @@
           <div class="hidden lg:block group" data-aos="fade-right">
             <img
               src="media/Profile.jpg"
-              alt="Arvin Profile"
-              class="w-full rounded opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition duration-700 shadow-2xl"
+              alt="Arvin Ramdhan's Professional Profile Portrait"
+              class="w-full h-auto rounded opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition duration-700 shadow-2xl"
               loading="lazy"
+              width="600"
+              height="800"
             />
           </div>
 
@@ -142,9 +174,11 @@
             >
               <img
                 src="media/Profile.jpg"
-                alt="Arvin Profile"
+                alt="Arvin Ramdhan's Professional Profile Portrait"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                width="400"
+                height="400"
               />
             </div>
 
@@ -184,6 +218,8 @@
                   class="bg-transparent border-none outline-none flex-1 text-white"
                   spellcheck="false"
                   autocomplete="off"
+                  aria-label="Terminal command input"
+                  placeholder="type help..."
                 />
               </div>
             </div>
@@ -207,24 +243,31 @@
           <a
             href="mailto:arvinramdhan1006@gmail.com"
             class="opacity-60 hover:opacity-100 hover:text-studio-accent transition"
+            aria-label="Send an email to Arvin Ramdhan"
             >Email</a
           >
           <a
             href="https://linkedin.com"
             target="_blank"
+            rel="noopener noreferrer"
             class="opacity-60 hover:opacity-100 hover:text-studio-accent transition"
+            title="LinkedIn Profile"
             >LinkedIn</a
           >
           <a
             href="https://github.com/ARVIN1006"
             target="_blank"
+            rel="noopener noreferrer"
             class="opacity-60 hover:opacity-100 hover:text-studio-accent transition"
+            title="GitHub Profile"
             >GitHub</a
           >
           <a
             href="https://wa.me/6282127666523"
             target="_blank"
+            rel="noopener noreferrer"
             class="opacity-60 hover:opacity-100 hover:text-studio-accent transition"
+            title="Chat on WhatsApp"
             >WhatsApp</a
           >
         </div>

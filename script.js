@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return `
         <article class="group relative flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-16 items-center fade-in" data-aos="fade-up">
             <div class="lg:col-span-5 ${isEven ? "lg:order-2" : "lg:order-1"}">
-                <span class="block font-serif text-3xl lg:text-4xl text-studio-gray opacity-30 mb-4">${
+                <span class="block font-serif text-3xl lg:text-4xl text-studio-gray opacity-30 mb-4" aria-hidden="true">${
                   project.number
                 }</span>
                 <h3 class="text-4xl lg:text-5xl font-bold mb-2 tracking-tight">${
@@ -69,12 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p class="text-lg text-studio-gray mb-6">${project.subtitle}</p>
 
                 <div class="block lg:hidden my-10 aspect-video bg-studio-soft border border-white/10 rounded overflow-hidden">
-                    <img src="${
-                      project.image_url
-                    }" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="${project.image_url}" alt="Screenshot of ${
+          project.title
+        }" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" width="800" height="450">
                 </div>
                 
-                <ul class="flex flex-wrap gap-4 mb-8 text-sm opacity-80">
+                <ul class="flex flex-wrap gap-4 mb-8 text-sm opacity-80" aria-label="Technologies used">
                     ${(project.tech_stack || [])
                       .map(
                         (tech) =>
@@ -84,8 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 </ul>
                 <a href="${
                   project.live_link || "#"
-                }" target="_blank" class="inline-flex items-center gap-2 border-b border-white pb-1 font-semibold hover:text-studio-accent transition-all group-hover:gap-4">
-                    ${project.btn_text} <i class="bi bi-arrow-right"></i>
+                }" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border-b border-white pb-1 font-semibold hover:text-studio-accent transition-all group-hover:gap-4" title="View ${
+          project.title
+        } Live Demo">
+                    ${
+                      project.btn_text
+                    } <i class="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
 
@@ -93,9 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
               isEven ? "lg:order-1" : "lg:order-2"
             }">
                 <div class="w-full aspect-video bg-studio-soft border border-white/10 rounded overflow-hidden flex items-center justify-center relative">
-                    <img src="${
-                      project.image_url
-                    }" class="w-full h-full object-cover opacity-80 lg:grayscale lg:group-hover:grayscale-0 lg:group-hover:opacity-100 transition duration-700 group-hover:scale-105" loading="lazy">
+                    <img src="${project.image_url}" alt="Screenshot of ${
+          project.title
+        }" class="w-full h-full object-cover opacity-80 lg:grayscale lg:group-hover:grayscale-0 lg:group-hover:opacity-100 transition duration-700 group-hover:scale-105" loading="lazy" width="800" height="450">
                 </div>
             </div>
         </article>`;
@@ -146,13 +150,40 @@ document.addEventListener("DOMContentLoaded", () => {
     cursorCircle &&
     window.matchMedia("(pointer: fine)").matches
   ) {
-    window.addEventListener("mousemove", (e) => {
-      cursorDot.style.left = `${e.clientX}px`;
-      cursorDot.style.top = `${e.clientY}px`;
+    let mouseX = 0,
+      mouseY = 0;
+    let dotX = 0,
+      dotY = 0;
+    let circleX = 0,
+      circleY = 0;
 
-      // Use simple redundant tracking, CSS transition handles the smoothing
-      cursorCircle.style.left = `${e.clientX}px`;
-      cursorCircle.style.top = `${e.clientY}px`;
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    const animate = () => {
+      // Small lag for the circle, instant for the dot
+      dotX = mouseX;
+      dotY = mouseY;
+      circleX += (mouseX - circleX) * 0.15;
+      circleY += (mouseY - circleY) * 0.15;
+
+      cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+      cursorCircle.style.transform = `translate3d(${circleX}px, ${circleY}px, 0) translate(-50%, -50%)`;
+
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    // Hover effect for interactive elements
+    document.querySelectorAll("a, button, input").forEach((el) => {
+      el.addEventListener("mouseenter", () =>
+        document.body.classList.add("hover-active")
+      );
+      el.addEventListener("mouseleave", () =>
+        document.body.classList.remove("hover-active")
+      );
     });
   }
 });
