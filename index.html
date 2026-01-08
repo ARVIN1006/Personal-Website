@@ -107,28 +107,43 @@
       </div>
     </nav>
 
-    <header class="h-screen flex items-center pt-20 lg:pt-0">
-      <div class="container">
+    <header
+      class="h-screen flex items-center pt-20 lg:pt-0 relative overflow-hidden"
+    >
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-10 left-6 lg:left-12 hidden lg:flex flex-col items-center gap-4 z-20"
+        data-aos="fade-right"
+        data-aos-delay="800"
+      >
+        <div class="w-[1px] h-12 bg-white/20"></div>
+        <span
+          class="text-[10px] font-mono text-white/40 tracking-[0.2em] uppercase [writing-mode:vertical-rl] rotate-180"
+          >Scroll</span
+        >
+      </div>
+
+      <div class="container relative z-10">
         <h1
-          class="flex flex-col text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.9] tracking-tighter"
+          class="flex flex-col items-center text-center text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.9] tracking-tighter"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
           <span class="block">CRAFTING</span>
-          <span class="block text-studio-gray ml-4 lg:ml-12">THE WEB</span>
+          <span class="block text-studio-gray">THE WEB</span>
         </h1>
         <div
-          class="mt-12 lg:mt-20 flex flex-col lg:flex-row justify-between lg:items-end border-t border-white/10 pt-8 gap-8"
+          class="mt-12 lg:mt-24 flex flex-col lg:flex-row justify-between items-center lg:items-end border-t border-white/10 pt-8 gap-8"
           data-aos="fade-up"
           data-aos-delay="200"
         >
           <p
-            class="font-sans text-sm lg:text-base font-semibold uppercase tracking-[0.2em]"
+            class="font-sans text-sm lg:text-base font-semibold uppercase tracking-[0.2em] text-center lg:text-left"
           >
             MODERN WEB DEVELOPER
           </p>
           <p
-            class="text-studio-gray text-base lg:text-lg max-w-md lg:text-right"
+            class="text-studio-gray text-base lg:text-lg max-w-md text-center lg:text-right"
           >
             Building <strong class="text-white">Cinematic</strong> and
             <strong class="text-white">Performant</strong> digital experiences.
