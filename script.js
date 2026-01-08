@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
           tech_stack: ["Next.js", "React", "Dashboard"],
           live_link: "https://wms-project-4dtd.vercel.app/",
           btn_text: "Live Demo",
-          image_url: "media/cuplikan-layar-2026-01-07-142925.png",
+          image_url:
+            "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-142925.png",
         },
         {
           number: "02",
@@ -29,7 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
           tech_stack: ["Netlify", "UI/UX", "Modern Web"],
           live_link: "https://web-crave.netlify.app/",
           btn_text: "Visit Site",
-          image_url: "media/cuplikan-layar-2026-01-07-122353.png",
+          image_url:
+            "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-122353.png",
         },
         {
           number: "03",
@@ -38,7 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
           tech_stack: ["Cinematic CSS", "Micro-Interactions"],
           live_link: "#",
           btn_text: "You Are Here",
-          image_url: "media/cuplikan-layar-2026-01-07-132111.png",
+          image_url:
+            "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-132111.png",
         },
       ];
       container.innerHTML = renderProjects(fallbackData);
@@ -163,11 +166,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const animate = () => {
-      // Small lag for the circle, instant for the dot
+      // Optimization: Only update DOM if changes are significant
+      const dx = mouseX - circleX;
+      const dy = mouseY - circleY;
+
+      // Small threshold to stop animation loop when idle
+      if (
+        Math.abs(dx) < 0.1 &&
+        Math.abs(dy) < 0.1 &&
+        Math.abs(dotX - mouseX) < 0.1 &&
+        Math.abs(dotY - mouseY) < 0.1
+      ) {
+        requestAnimationFrame(animate);
+        return;
+        // Note: Returning here stops updating the DOM, but we still need to keep the loop alive
+        // to catch future movements. Actually, typical practice is to keep requesting animation frame
+        // but skip the heavy DOM updates.
+      }
+
       dotX = mouseX;
       dotY = mouseY;
-      circleX += (mouseX - circleX) * 0.15;
-      circleY += (mouseY - circleY) * 0.15;
+      circleX += dx * 0.15;
+      circleY += dy * 0.15;
 
       cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
       cursorCircle.style.transform = `translate3d(${circleX}px, ${circleY}px, 0) translate(-50%, -50%)`;
