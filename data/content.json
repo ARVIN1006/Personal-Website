@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title_line_1": "CRAFTING",
+    "title_line_1": "MAKING",
     "title_line_2": "THE WEB",
     "role_text": "MODERN WEB DEVELOPER",
     "description": "Building <strong>Cinematic</strong> and <strong>Performant</strong> digital experiences. <br />Merging code with creativity."
@@ -10,7 +10,11 @@
       "number": "01",
       "title": "Smart WMS",
       "subtitle": "Enterprise Warehouse Management System",
-      "tech_stack": ["React / Next.js", "Dashboard UI", "Inventory Logic"],
+      "tech_stack": [
+        "React / Next.js",
+        "Dashboard UI",
+        "Inventory Logic"
+      ],
       "live_link": "https://wms-project-4dtd.vercel.app/",
       "btn_text": "Live Demo",
       "image_url": "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-142925.png"
@@ -19,7 +23,11 @@
       "number": "02",
       "title": "Web Crave",
       "subtitle": "Creative Digital Agency Platform",
-      "tech_stack": ["Modern UI/UX", "Responsive Design", "Netlify"],
+      "tech_stack": [
+        "Modern UI/UX",
+        "Responsive Design",
+        "Netlify"
+      ],
       "live_link": "https://web-crave.netlify.app/",
       "btn_text": "Visit Site",
       "image_url": "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-122353.png"
@@ -28,7 +36,11 @@
       "number": "03",
       "title": "Portfolio v2",
       "subtitle": "Cinematic Personal Branding",
-      "tech_stack": ["HTML5 Semantic", "Cinematic CSS", "Micro-Interactions"],
+      "tech_stack": [
+        "HTML5 Semantic",
+        "Cinematic CSS",
+        "Micro-Interactions"
+      ],
       "live_link": "#",
       "btn_text": "You Are Here",
       "image_url": "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-132111.png"
