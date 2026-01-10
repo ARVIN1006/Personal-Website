@@ -14,30 +14,126 @@ collections:
         label: "Global Site Content"
         name: "site_data"
         fields:
-          - { label: "Hero Section", name: "hero", widget: "object", fields: [
-                { label: "Title Line 1", name: "title_line_1", widget: "string" },
-                { label: "Title Line 2", name: "title_line_2", widget: "string" },
-                { label: "Role Text", name: "role_text", widget: "string" },
-                { label: "Description (HTML allowed)", name: "description", widget: "string" },
-              ] }
-          - { label: "Selected Work", name: "projects", widget: "list", collapsed: false, summary: '{{title}}', fields: [
-                { label: "Number (01, 02)", name: "number", widget: "string" },
-                { label: "Title", name: "title", widget: "string" },
-                { label: "Subtitle/Concept", name: "subtitle", widget: "string" },
-                { label: "Tech Stack", name: "tech_stack", widget: "list", field: { label: "Technology", name: "tech", widget: "string" } },
-                { label: "Live Link", name: "live_link", widget: "string", required: false },
-                { label: "Button Text", name: "btn_text", widget: "string", default: "View Project" },
-                { label: "Image URL", name: "image_url", widget: "image" },
-              ] }
-          - { label: "About Section", name: "about", widget: "object", fields: [
-                { label: "Heading", name: "heading", widget: "string" },
-                { label: "Bio Text (Paragraph 1)", name: "text_1", widget: "text" },
-                { label: "Bio Text (Paragraph 2)", name: "text_2", widget: "text" },
-                { label: "Bio Text (Paragraph 3)", name: "text_3", widget: "text" },
-                { label: "Profile Image", name: "image_url", widget: "image" },
-                { label: "Resume File", name: "resume_link", widget: "file" },
-              ] }
-          - { label: "Footer Section", name: "footer", widget: "object", fields: [
-                { label: "CTA Text", name: "cta_text", widget: "string" },
-                { label: "Copyright Text", name: "copyright", widget: "string" },
-              ] }
+          - {
+              label: "Hero Section",
+              name: "hero",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Title Line 1",
+                    name: "title_line_1",
+                    widget: "string",
+                  },
+                  {
+                    label: "Title Line 2",
+                    name: "title_line_2",
+                    widget: "string",
+                  },
+                  { label: "Role Text", name: "role_text", widget: "string" },
+                  {
+                    label: "Description (HTML allowed)",
+                    name: "description",
+                    widget: "string",
+                  },
+                ],
+            }
+          - {
+              label: "Selected Work",
+              name: "projects",
+              widget: "list",
+              collapsed: false,
+              summary: "{{title}}",
+              fields:
+                [
+                  {
+                    label: "Number (01, 02)",
+                    name: "number",
+                    widget: "string",
+                  },
+                  { label: "Title", name: "title", widget: "string" },
+                  {
+                    label: "Subtitle/Concept",
+                    name: "subtitle",
+                    widget: "string",
+                  },
+                  {
+                    label: "Tech Stack",
+                    name: "tech_stack",
+                    widget: "list",
+                    field:
+                      { label: "Technology", name: "tech", widget: "string" },
+                  },
+                  {
+                    label: "Live Link",
+                    name: "live_link",
+                    widget: "string",
+                    required: false,
+                  },
+                  {
+                    label: "Button Text",
+                    name: "btn_text",
+                    widget: "string",
+                    default: "View Project",
+                  },
+                  { label: "Image URL", name: "image_url", widget: "image" },
+                ],
+            }
+          - {
+              label: "About Section",
+              name: "about",
+              widget: "object",
+              fields:
+                [
+                  { label: "Heading", name: "heading", widget: "string" },
+                  {
+                    label: "Bio Text (Paragraph 1)",
+                    name: "text_1",
+                    widget: "text",
+                  },
+                  {
+                    label: "Bio Text (Paragraph 2)",
+                    name: "text_2",
+                    widget: "text",
+                  },
+                  {
+                    label: "Bio Text (Paragraph 3)",
+                    name: "text_3",
+                    widget: "text",
+                  },
+                  {
+                    label: "Profile Image",
+                    name: "image_url",
+                    widget: "image",
+                  },
+                  { label: "Resume File", name: "resume_link", widget: "file" },
+                ],
+            }
+          - {
+              label: "Footer Section",
+              name: "footer",
+              widget: "object",
+              fields:
+                [
+                  { label: "CTA Text", name: "cta_text", widget: "string" },
+                  {
+                    label: "Copyright Text",
+                    name: "copyright",
+                    widget: "string",
+                  },
+                  {
+                    label: "Social Links",
+                    name: "socials",
+                    widget: "list",
+                    fields:
+                      [
+                        {
+                          label: "Platform Name",
+                          name: "name",
+                          widget: "string",
+                        },
+                        { label: "URL", name: "url", widget: "string" },
+                      ],
+                  },
+                ],
+            }

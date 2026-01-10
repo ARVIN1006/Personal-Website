@@ -2,49 +2,83 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const loadContent = async () => {
-    const container = document.getElementById("project-list-container");
-    if (!container) return;
-
     try {
       const response = await fetch("data/content.json");
       if (!response.ok) throw new Error("Failed to load content");
       const data = await response.json();
-      if (data.projects) container.innerHTML = renderProjects(data.projects);
+
+      // --- 1. HERO SECTION ---
+      if (data.hero) {
+        setText("hero-title-1", data.hero.title_line_1);
+        setText("hero-title-2", data.hero.title_line_2);
+        setText("hero-role", data.hero.role_text);
+        setHTML("hero-desc", data.hero.description);
+      }
+
+      // --- 2. PROJECTS SECTION ---
+      const projectContainer = document.getElementById(
+        "project-list-container"
+      );
+      if (projectContainer && data.projects) {
+        projectContainer.innerHTML = renderProjects(data.projects);
+      }
+
+      // --- 3. ABOUT SECTION ---
+      if (data.about) {
+        setHTML("about-heading", data.about.heading);
+        setImage("about-img-desktop", data.about.image_url);
+        setImage("about-img-mobile", data.about.image_url);
+        setLink("about-resume", data.about.resume_link);
+
+        const textContainer = document.getElementById("about-text-container");
+        if (textContainer) {
+          let html = "";
+          if (data.about.text_1) html += `<p>${data.about.text_1}</p>`;
+          if (data.about.text_2) html += `<p>${data.about.text_2}</p>`;
+          if (data.about.text_3) html += `<p>${data.about.text_3}</p>`;
+          textContainer.innerHTML = html;
+        }
+      }
+
+      // --- 4. FOOTER SECTION ---
+      if (data.footer) {
+        setText("footer-cta", data.footer.cta_text);
+        setHTML("footer-copyright", data.footer.copyright);
+
+        const socialsContainer = document.getElementById("footer-socials");
+        if (socialsContainer && data.footer.socials) {
+          socialsContainer.innerHTML = data.footer.socials
+            .map(
+              (link) => `
+              <a href="${link.url}" target="_blank" rel="noopener noreferrer" 
+                 class="opacity-60 hover:opacity-100 hover:text-studio-accent transition"
+                 title="${link.name}">
+                 ${link.name}
+              </a>
+          `
+            )
+            .join("");
+        }
+      }
     } catch (error) {
-      console.warn("Using fallback data.");
-      const fallbackData = [
-        {
-          number: "01",
-          title: "Smart WMS",
-          subtitle: "Enterprise Warehouse Management System",
-          tech_stack: ["Next.js", "React", "Dashboard"],
-          live_link: "https://wms-project-4dtd.vercel.app/",
-          btn_text: "Live Demo",
-          image_url:
-            "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-142925.png",
-        },
-        {
-          number: "02",
-          title: "Web Crave",
-          subtitle: "Creative Digital Agency Platform",
-          tech_stack: ["Netlify", "UI/UX", "Modern Web"],
-          live_link: "https://web-crave.netlify.app/",
-          btn_text: "Visit Site",
-          image_url:
-            "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-122353.png",
-        },
-        {
-          number: "03",
-          title: "Portfolio v2",
-          subtitle: "Cinematic Personal Branding",
-          tech_stack: ["Cinematic CSS", "Micro-Interactions"],
-          live_link: "#",
-          btn_text: "You Are Here",
-          image_url:
-            "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-132111.png",
-        },
-      ];
-      container.innerHTML = renderProjects(fallbackData);
+      console.warn("Using fallback data due to error:", error);
+      // Fallback only provided for projects as critical content
+      const container = document.getElementById("project-list-container");
+      if (container) {
+        const fallbackData = [
+          {
+            number: "01",
+            title: "Smart WMS",
+            subtitle: "Enterprise Warehouse Management System",
+            tech_stack: ["Next.js", "React", "Dashboard"],
+            live_link: "https://wms-project-4dtd.vercel.app/",
+            btn_text: "Live Demo",
+            image_url:
+              "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-142925.png",
+          },
+        ];
+        container.innerHTML = renderProjects(fallbackData);
+      }
     } finally {
       requestAnimationFrame(() => {
         AOS.init({
@@ -54,6 +88,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     }
+  };
+
+  // Helper Functions
+  const setText = (id, text) => {
+    const el = document.getElementById(id);
+    if (el && text) el.textContent = text;
+  };
+  const setHTML = (id, html) => {
+    const el = document.getElementById(id);
+    if (el && html) el.innerHTML = html;
+  };
+  const setImage = (id, src) => {
+    const el = document.getElementById(id);
+    if (el && src) el.src = src;
+  };
+  const setLink = (id, href) => {
+    const el = document.getElementById(id);
+    if (el && href) el.href = href;
   };
 
   const renderProjects = (projects) => {
@@ -145,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cursor Logic (Hanya untuk device dengan kursor presisi)
+  // Cursor Logic
   const cursorDot = document.querySelector(".cursor-dot");
   const cursorCircle = document.querySelector(".cursor-circle");
   if (
@@ -166,11 +218,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const animate = () => {
-      // Optimization: Only update DOM if changes are significant
       const dx = mouseX - circleX;
       const dy = mouseY - circleY;
 
-      // Small threshold to stop animation loop when idle
       if (
         Math.abs(dx) < 0.1 &&
         Math.abs(dy) < 0.1 &&
@@ -179,9 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ) {
         requestAnimationFrame(animate);
         return;
-        // Note: Returning here stops updating the DOM, but we still need to keep the loop alive
-        // to catch future movements. Actually, typical practice is to keep requesting animation frame
-        // but skip the heavy DOM updates.
       }
 
       dotX = mouseX;
@@ -196,7 +243,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     animate();
 
-    // Hover effect for interactive elements
     document.querySelectorAll("a, button, input").forEach((el) => {
       el.addEventListener("mouseenter", () =>
         document.body.classList.add("hover-active")

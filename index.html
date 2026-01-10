@@ -139,8 +139,8 @@
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          <span class="block">CRAFTING</span>
-          <span class="block text-studio-gray">THE WEB</span>
+          <span id="hero-title-1" class="block">CRAFTING</span>
+          <span id="hero-title-2" class="block text-studio-gray">THE WEB</span>
         </h1>
         <div
           class="mt-12 lg:mt-24 flex flex-col lg:flex-row justify-between items-center lg:items-end border-t border-white/10 pt-8 gap-8"
@@ -148,11 +148,13 @@
           data-aos-delay="200"
         >
           <p
+            id="hero-role"
             class="font-sans text-sm lg:text-base font-semibold uppercase tracking-[0.2em] text-center lg:text-left"
           >
             MODERN WEB DEVELOPER
           </p>
           <p
+            id="hero-desc"
             class="text-studio-gray text-base lg:text-lg max-w-md text-center lg:text-right"
           >
             Building <strong class="text-white">Cinematic</strong> and
@@ -180,6 +182,7 @@
         <div class="grid lg:grid-cols-2 gap-16 lg:gap-32 items-center">
           <div class="hidden lg:block group" data-aos="fade-right">
             <img
+              id="about-img-desktop"
               src="https://arvindev.netlify.app/media/Profile.jpg"
               alt="Arvin Ramdhan's Professional Profile Portrait"
               class="w-full h-auto rounded opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition duration-700 shadow-2xl"
@@ -190,7 +193,10 @@
           </div>
 
           <div class="flex flex-col" data-aos="fade-left">
-            <h2 class="text-4xl lg:text-6xl font-normal leading-[1.1] mb-8">
+            <h2
+              id="about-heading"
+              class="text-4xl lg:text-6xl font-normal leading-[1.1] mb-8"
+            >
               Engineering the<br />Modern Web.
             </h2>
 
@@ -198,6 +204,7 @@
               class="block lg:hidden my-8 w-full aspect-square overflow-hidden rounded-lg shadow-xl"
             >
               <img
+                id="about-img-mobile"
                 src="https://arvindev.netlify.app/media/Profile.jpg"
                 alt="Arvin Ramdhan's Professional Profile Portrait"
                 class="w-full h-full object-cover"
@@ -207,7 +214,10 @@
               />
             </div>
 
-            <div class="space-y-6 text-studio-gray text-lg">
+            <div
+              id="about-text-container"
+              class="space-y-6 text-studio-gray text-lg"
+            >
               <p>
                 I am Arvin Ramdhan, a
                 <strong class="text-white">Web Developer</strong> based in
@@ -250,6 +260,7 @@
             </div>
 
             <a
+              id="about-resume"
               href="https://arvindev.netlify.app/media/Profile.pdf"
               class="inline-block mt-12 px-10 py-4 bg-white text-studio-black font-bold hover:bg-studio-accent hover:text-white transition duration-300"
               >Download Resume</a
@@ -264,10 +275,16 @@
       class="pt-32 pb-16 border-t border-white/5 overflow-hidden"
     >
       <div class="container flex flex-col items-start gap-16">
-        <h2 class="text-6xl lg:text-8xl font-black tracking-tighter">
+        <h2
+          id="footer-cta"
+          class="text-6xl lg:text-8xl font-black tracking-tighter"
+        >
           Start a Project.
         </h2>
-        <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 text-xl">
+        <div
+          id="footer-socials"
+          class="flex flex-col lg:flex-row gap-8 lg:gap-16 text-xl"
+        >
           <a
             href="mailto:arvinramdhan1006@gmail.com"
             class="opacity-60 hover:opacity-100 hover:text-studio-accent transition"
@@ -299,7 +316,7 @@
             >WhatsApp</a
           >
         </div>
-        <p class="text-sm text-studio-gray opacity-40">
+        <p id="footer-copyright" class="text-sm text-studio-gray opacity-40">
           &copy; 2025 Arvin Ramdhan.
         </p>
       </div>

@@ -56,6 +56,24 @@
   },
   "footer": {
     "cta_text": "Start a Project.",
-    "copyright": "&copy; 2025 Arvin Ramdhan. Web Developer."
+    "copyright": "&copy; 2025 Arvin Ramdhan. Web Developer.",
+    "socials": [
+      {
+        "name": "Email",
+        "url": "mailto:arvinramdhan1006@gmail.com"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/ARVIN1006"
+      },
+      {
+        "name": "WhatsApp",
+        "url": "https://wa.me/6282127666523"
+      }
+    ]
   }
 }
