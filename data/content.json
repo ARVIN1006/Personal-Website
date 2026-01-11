@@ -44,6 +44,19 @@
       "live_link": "#",
       "btn_text": "You Are Here",
       "image_url": "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-132111.png"
+    },
+    {
+      "btn_text": "View Project",
+      "number": "04",
+      "title": "UMKMKIT",
+      "subtitle": "Creative Digital Agency Platform",
+      "tech_stack": [
+        "React",
+        "Modern UI/UX",
+        "Unique UI"
+      ],
+      "live_link": "https://umkmkit.netlify.app/",
+      "image_url": "media/cuplikan-layar-2026-01-11-141004.png"
     }
   ],
   "about": {
