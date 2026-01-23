@@ -57,6 +57,19 @@
       ],
       "live_link": "https://umkmkit.netlify.app/",
       "image_url": "media/cuplikan-layar-2026-01-11-141004.png"
+    },
+    {
+      "btn_text": "View Project",
+      "number": "05",
+      "title": "Bangun Mandiri Construction",
+      "subtitle": "Profesional Company Profile",
+      "tech_stack": [
+        "React",
+        "Responsive Design",
+        "Micro-Interactions"
+      ],
+      "live_link": "https://bangun-mandiri-construction.netlify.app/",
+      "image_url": "media/cuplikan-layar-2026-01-23-093736.png"
     }
   ],
   "about": {
