@@ -21,16 +21,16 @@
     },
     {
       "number": "02",
-      "title": "Web Crave",
+      "title": "Nexa Digital Studio",
       "subtitle": "Creative Digital Agency Platform",
       "tech_stack": [
         "Modern UI/UX",
         "Responsive Design",
         "Netlify"
       ],
-      "live_link": "https://webcrave.netlify.app/",
+      "live_link": "https://nexadigitalstudio.netlify.app/",
       "btn_text": "Visit Site",
-      "image_url": "https://arvindev.netlify.app/media/cuplikan-layar-2026-01-07-122353.png"
+      "image_url": "media/cuplikan-layar-2026-01-23-192141.png"
     },
     {
       "number": "03",
