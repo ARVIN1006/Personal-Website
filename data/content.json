@@ -77,7 +77,12 @@
       "title": "Bimble Cerdas",
       "subtitle": "Educational Services",
       "live_link": "https://bimbelcerdas.netlify.app/",
-      "image_url": "media/cuplikan-layar-2026-01-26-192712.png"
+      "image_url": "media/cuplikan-layar-2026-01-26-192712.png",
+      "tech_stack": [
+        "React",
+        "Responsive Design",
+        " Micro-Interactions"
+      ]
     }
   ],
   "about": {
