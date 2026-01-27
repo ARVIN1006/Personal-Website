@@ -70,6 +70,14 @@
       ],
       "live_link": "https://bangun-mandiri-construction.netlify.app/",
       "image_url": "media/cuplikan-layar-2026-01-23-093736.png"
+    },
+    {
+      "btn_text": "View Project",
+      "number": "06",
+      "title": "Bimble Cerdas",
+      "subtitle": "Educational Services",
+      "live_link": "https://bimbelcerdas.netlify.app/",
+      "image_url": "media/cuplikan-layar-2026-01-26-192712.png"
     }
   ],
   "about": {
