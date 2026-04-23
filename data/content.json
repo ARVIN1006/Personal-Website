@@ -90,7 +90,11 @@
       "title": "COREHR",
       "subtitle": "HRIS Software ",
       "image_url": "media/cuplikan-layar-2026-04-23-170526.png",
-      "live_link": "https://absensi-wajah-demo-static.netlify.app/"
+      "live_link": "https://absensi-wajah-demo-static.netlify.app/",
+      "tech_stack": [
+        "Laravel",
+        "React"
+      ]
     }
   ],
   "about": {
