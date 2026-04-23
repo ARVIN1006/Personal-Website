@@ -83,6 +83,14 @@
         "Responsive Design",
         " Micro-Interactions"
       ]
+    },
+    {
+      "btn_text": "Live deo",
+      "number": "06",
+      "title": "COREHR",
+      "subtitle": "HRIS Software ",
+      "image_url": "media/cuplikan-layar-2026-04-23-170526.png",
+      "live_link": "https://absensi-wajah-demo-static.netlify.app/"
     }
   ],
   "about": {
